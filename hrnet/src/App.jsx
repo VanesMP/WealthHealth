@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from "./pages/Home";
 import EmployeeList from "./pages/EmployeeList";
 import CreateEmployee from "./pages/CreateEmployee";
 import './App.css';
@@ -14,9 +13,8 @@ export default function App() {
     return ( 
       <Router>  
         <Routes>
-          <Route exact path="/" element={<Home/>} />
-          <Route path="/list" element={<EmployeeList/>}/>
-          <Route path="/new" element={<CreateEmployee/>}/>
+          <Route exact path="/" element={<CreateEmployee/>}/>
+          <Route path="/employees" element={<EmployeeList/>}/>
         </Routes> 
     </Router> 
     );
