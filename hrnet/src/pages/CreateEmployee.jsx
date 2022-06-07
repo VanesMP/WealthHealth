@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import Fieldset from "../Components/Fieldset";
 import Header from "../Components/Header";
 import Input from "../Components/Input";
 import Select from "../Components/Select";
@@ -12,43 +13,37 @@ import dataSate from "../statesData.json"
 
 export default function CreateEmployee() {
 
+    let activeStyle = {
+        textDecoration: "underline"
+      };
+
     return(
         <div className="containerCreateEmployee">
             <Header />
             <div className="container">
                 <div className="elementNav">
-                    <Link to="/employees"className="nav">📋 View Current Employees</Link>
-                    <h2 className="nav">🖋 Create Employee</h2>
+                    <NavLink to="/"className="nav"  style={({ isActive }) => isActive ? activeStyle : undefined} >🖋 Create Employee</NavLink>
+                    <NavLink to="/employees"className="nav" style={({ isActive }) => isActive ? activeStyle : undefined} >📋 View Current Employees</NavLink>
                 </div>
 
                 <form id="create-employee">
-                    <fieldset className="fieldsetIdentity"> 
-                        <legend>Identity</legend>
-                            <Input title="First Name" attribut="firstName" type="text" />
-                            <Input title="Last Name" attribut="lastName" type="text" />
-                            <Input title="Date of Birth" attribut="dateOfBirth" type="text" />
-                            <Input title="Start Date" attribut="startDate" type="text" />
-                    </fieldset>  
-                    <fieldset className="fieldsetAdress">
-                        <legend>Address</legend>
-                            <Input title="Street" attribut="street" type="text" />
-                            <Input title="City" attribut="city" type="text" />
+                    <Fieldset title="Identity" attribut="fieldsetIdentity">
+                        <Input title="First Name" attribut="firstName" type="text" />
+                        <Input title="Last Name" attribut="lastName" type="text" />
+                        <Input title="Date of Birth" attribut="dateOfBirth" type="text" />
+                        <Input title="Start Date" attribut="startDate" type="text" />
+                    </Fieldset> 
 
-    {/* creer un composant select */}
-                            <Select attribut="state" title="State" data={dataSate.country} />
-                            {/* <label htmlFor="state" className="state">
-                                State 
-                                <select name="state" id="state">
-                                    <option value="sales">Sales</option>
-                                    <option value="marketing">Marketing</option> */}
-                                    
-                            <Input title="Zip Code" attribut="zipCode" type="number" />
-                    </fieldset>
+                    <Fieldset title="Address" attribut="fieldsetAdress">
+                        <Input title="Street" attribut="street" type="text" />
+                        <Input title="City" attribut="city" type="text" />
+                        <Select attribut="state" title="State" data={dataSate.country} />        
+                        <Input title="Zip Code" attribut="zipCode" type="number" />
+                    </Fieldset>
 
-                    <fieldset className="fieldsetDepartment">
-                        <legend>Department</legend>
-                            <Select attribut="department" title=" " data={dataDepartments.departements} />
-                    </fieldset>                      
+                    <Fieldset title="Department" attribut="fieldsetDepartment">
+                        <Select attribut="department" title=" " data={dataDepartments.departements} />
+                    </Fieldset>                      
                 </form>
 
                 <button className="btnSave">

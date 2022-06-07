@@ -11,7 +11,7 @@ export default function Select({ title, attribut, data }) {
         <label htmlFor={attribut} className={attribut}>
             {title} 
             <select name={attribut} id={attribut}>
-                {data.map((arrayItem, index) => <option name={arrayItem.name} value={arrayItem.name} key={arrayItem.name}>{arrayItem.name}</option>)};
+                {data.map(arrayItem => <option name={arrayItem.name} value={arrayItem.name} key={arrayItem.name}>{arrayItem.name}</option>)};
             </select>
         </label>
     )

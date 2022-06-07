@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 export default function Input({ title, attribut, type }) {
 
     return(
-        <label htmlFor={attribut}>
+        <label htmlFor={attribut} className={attribut}>
             {title} 
             <input type={type} name={attribut} id={attribut} />
         </label>
@@ -21,5 +21,8 @@ export default function Input({ title, attribut, type }) {
 Input.propTypes = {
     title: PropTypes.string,
     attribut: PropTypes.string,
-    type: PropTypes.string
+    type: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+    ])
 }

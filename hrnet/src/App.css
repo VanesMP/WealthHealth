@@ -52,9 +52,9 @@ a:hover {
 }
 
 .elementNav {
-    margin-top: 25px;
+    margin-top: 70px;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     align-items: center;
     width: 100%;
     justify-content: space-around;
@@ -110,7 +110,7 @@ fieldset {
 
 .fieldsetAdress {
     display: grid;
-    grid-template-areas: "street street" "city state" "zipCode zipCode";
+    grid-template-areas: "street street" "city state" "zipCode . ";
     grid-template-columns: 1fr 1fr;
 }
 
