@@ -52,6 +52,7 @@ a:hover {
 }
 
 .elementNav {
+    margin-top: 25px;
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
@@ -65,7 +66,7 @@ a:hover {
     justify-content: center;
     align-items: center;
     margin: 65px auto 0px auto;
-    width: 60%;
+    width: 63%;
 }
 
 label {

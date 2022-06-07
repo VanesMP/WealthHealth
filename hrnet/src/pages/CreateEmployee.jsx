@@ -1,5 +1,9 @@
 import { Link } from "react-router-dom";
-//import country from "../statesData.json"
+import Header from "../Components/Header";
+import Input from "../Components/Input";
+import Select from "../Components/Select";
+import dataDepartments from "../departmentOption.json"
+import dataSate from "../statesData.json"
 
 /** Render to the create new employee page
  * @function CreateEmployee
@@ -8,16 +12,9 @@ import { Link } from "react-router-dom";
 
 export default function CreateEmployee() {
 
-    //console.log(country)
-
     return(
         <div className="containerCreateEmployee">
-
-{/* creer un composant header */}
-            <div className="containerTitle">
-                <h1 className="title">HRnet</h1>
-            </div>
-            
+            <Header />
             <div className="container">
                 <div className="elementNav">
                     <Link to="/employees"className="nav">📋 View Current Employees</Link>
@@ -27,62 +24,31 @@ export default function CreateEmployee() {
                 <form id="create-employee">
                     <fieldset className="fieldsetIdentity"> 
                         <legend>Identity</legend>
-                            <label className="labelIdentity" htmlFor="firstName">
-                                First Name 
-                                <input type="text" name="firstName" />
-                            </label>
-                            <label className="labelIdentity" htmlFor="lastName">
-                                Last Name 
-                                <input type="text" name="lastName" />
-                            </label>
-                            <label className="labelIdentity" htmlFor="dateOfBirth">
-                                Date of Birth 
-                                <input type="text" name="dateOfBirth" />
-                            </label>
-                            <label className="labelIdentity" htmlFor="startDate">
-                                Start Date 
-                                <input type="text" name="startDate" />
-                            </label>
+                            <Input title="First Name" attribut="firstName" type="text" />
+                            <Input title="Last Name" attribut="lastName" type="text" />
+                            <Input title="Date of Birth" attribut="dateOfBirth" type="text" />
+                            <Input title="Start Date" attribut="startDate" type="text" />
                     </fieldset>  
                     <fieldset className="fieldsetAdress">
                         <legend>Address</legend>
-                            <label htmlFor="street" className="street">
-                                Street 
-                                <input type="text" name="street" />
-                            </label>
-                            <label htmlFor="city" className="city">
-                                City 
-                                <input type="text" name="city" />
-                            </label>
+                            <Input title="Street" attribut="street" type="text" />
+                            <Input title="City" attribut="city" type="text" />
 
     {/* creer un composant select */}
-                            <label htmlFor="state" className="state">
+                            <Select attribut="state" title="State" data={dataSate.country} />
+                            {/* <label htmlFor="state" className="state">
                                 State 
                                 <select name="state" id="state">
-                                    {/* {country.map((countryItem) => (
-                                        <option value={countryItem} className=""></option>
-                                    ))} */}
-                                </select>
-                            </label>
-                            <label htmlFor="zipCode" className="zipCode">
-                                Zip Code 
-                                <input type="number" name="zipCode" />
-                            </label>
+                                    <option value="sales">Sales</option>
+                                    <option value="marketing">Marketing</option> */}
+                                    
+                            <Input title="Zip Code" attribut="zipCode" type="number" />
                     </fieldset>
 
-{/* creer un composant select  */}
-                        <fieldset className="fieldsetDepartment">
-                            <legend>Department</legend>
-                                <label htmlFor="department">
-                                    <select name="department" id="department">
-                                    <option value="sales">Sales</option>
-                                    <option value="marketing">Marketing</option>
-                                    <option value="engineering">Engineering</option>
-                                    <option value="humanResources">Human Resources</option>
-                                    <option value="legal">Legal</option>
-                                    </select>
-                                </label> 
-                        </fieldset>                      
+                    <fieldset className="fieldsetDepartment">
+                        <legend>Department</legend>
+                            <Select attribut="department" title=" " data={dataDepartments.departements} />
+                    </fieldset>                      
                 </form>
 
                 <button className="btnSave">
