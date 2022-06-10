@@ -1,9 +1,11 @@
-// import React, { useState } from 'react';
+import React from 'react';
 // import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useRef } from "react";
 import Fieldset from "../Components/Fieldset";
 import { Input } from "../Components/Input";
 import Select from "../Components/Select";
+import Modal from "./Modal";
 import dataDepartments from "../departmentOption.json";
 import dataState from "../statesData.json";
 
@@ -14,18 +16,33 @@ import dataState from "../statesData.json";
 
 export default function Form() {
 
-    const { register, handleSubmit, formState: { errors } } = useForm({
-        firstName: '',
-        lastName: '',
-        dateOfBirth: '',
-        startDate: '',
-        street: '',
-        city: '',
-        state: '',
-        zipCode: '',
-        department: ''
-    }); 
-    const onSubmit = data => console.log( data);
+    const { register, handleSubmit, formState: { errors, isSubmitSuccessful  }, reset } = useForm({
+        defaultValues: {
+            firstName: '',
+            lastName: '',
+            dateOfBirth: '',
+            startDate: '',
+            street: '',
+            city: '',
+            state: '',
+            zipCode: '',
+            department: ''
+    }}); 
+    const onSubmit = (data =>{ 
+        console.log( data);
+        if (isSubmitSuccessful) {
+            modalElement.current.style.display = "block"
+        }
+    });
+
+    const buttonOpen =useRef(null);
+    const modalElement = useRef(null);
+    console.log(buttonOpen, modalElement)
+
+    const close = () => {
+        modalElement.current.style.display = "none";
+        reset();
+    }
 
     return (
         <div>
@@ -57,8 +74,15 @@ export default function Form() {
                             register={register} required options={dataDepartments.departements} errors={errors.department}/>
                     </Fieldset>                      
 
-                    <button form="createEmployee" className="btnSave" type='submit'>Save</button>
+                    <button form="createEmployee" className="btnSave" type='submit' ref={buttonOpen} >Save</button>
                 </form>
+
+                    <div ref={modalElement} className="modal">
+                        <Modal modalElement={modalElement}  buttonOpen={buttonOpen}>
+                            <p className="textModal">Employee Created! </p>
+                            <button type="button" className="btnClose" onClick={close}>X</button>
+                        </Modal>
+                    </div>
         </div>
     )
 }

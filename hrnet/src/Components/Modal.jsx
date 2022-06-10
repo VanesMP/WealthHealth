@@ -1,10 +1,14 @@
 
 
-export default function Modal() {
+export default function Modal({ children }) {
+
+    // const close = () => {
+    //     modal.current.style.display = "none"
+    // }
 
     return (
-        <div className="modal">
-            <div id="confirmation" className="modal">Employee Created!</div> 
-        </div>
+        <div id="confirmation">
+                {children}
+            </div> 
     )
 }
