@@ -1,24 +1,31 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
+import ErrorMessageField from "./ErrorMessageField"
 
 /**Render select element for form
  * @function Select
  * @returns {JSX}
  */
 
-export default function Select({ title, attribut, data }) {
+export default function Select({ htmlFor, className, title, register, required, name, options, errors }) {
   
     return(
-        <label htmlFor={attribut} className={attribut}>
+        <label htmlFor={htmlFor} className={className}>
             {title} 
-            <select name={attribut} id={attribut}>
-                {data.map(arrayItem => <option name={arrayItem.name} value={arrayItem.name} key={arrayItem.name}>{arrayItem.name}</option>)};
+            <select {...register(name, {required})}>
+                <option value=""> </option>
+                {options.map(arrayItem => <option name={arrayItem.name} value={arrayItem.name} key={arrayItem.name}>{arrayItem.name}</option>)}
             </select>
+            {errors && <ErrorMessageField className="errorMessageSelect" message="Please, choose an option"/>}
         </label>
     )
 }
 
-Select.propTypes = {
-    title: PropTypes.string,
-    attribut: PropTypes.string,
-    options: PropTypes.array
-}
+// Select.propTypes = {
+//     htmlFor: PropTypes.string,
+//     className: PropTypes.string,
+//     title: PropTypes.string,
+//     required: PropTypes.bool,
+//     register: PropTypes.element,
+//     name: PropTypes.string,
+//     options: PropTypes.array
+// }

@@ -1,7 +1,11 @@
 /* css page : createEmployee */
 
 form {
-    margin: 0px 0px 10px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 85%;
+    margin: auto;
 }
 
 input,
@@ -12,6 +16,7 @@ select {
     border-width: 2px;
     border-style: outset;
     border-color: gray;
+    padding: 0px 0px 0px 10px;
 }
 
 a {
@@ -52,12 +57,12 @@ a:hover {
 }
 
 .elementNav {
-    margin-top: 70px;
+    margin-top: 40px;
     display: flex;
     flex-direction: row;
     align-items: center;
     width: 100%;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .container {
@@ -66,12 +71,13 @@ a:hover {
     justify-content: center;
     align-items: center;
     margin: 65px auto 0px auto;
-    width: 63%;
+    width: 630px;
 }
 
 label {
     display: block;
-    margin-top: 12px;
+    margin: 0px;
+    height: max-content;
     font-size: 18px;
     font-weight: bold;
     display: flex;
@@ -79,8 +85,8 @@ label {
 }
 
 fieldset {
-    width: 600px;
-    margin: 15px;
+    width: 100%;
+    margin: 13px 15px;
     border: 3px solid #035728;
     border-radius: 5px;
     padding: 15px 40px 20px 40px;
@@ -90,6 +96,7 @@ fieldset {
 .fieldsetIdentity {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    margin-top: 35px;
 }
 
 .street {
@@ -134,7 +141,9 @@ legend {
     border: none;
     background-color: #035728;
     color: #fffefe;
+    font-size: 16px;
     border-radius: 5px;
+    margin-top: 8px;
 }
 
 .btnSave:hover {
@@ -146,6 +155,22 @@ legend {
     0% {
         box-shadow: 0 0 0 0 #0357278e;
     }
+}
+
+.errorMessageInput,
+.errorMessageSelect {
+    color: rgb(255 1 1 / 71%);
+    font-size: 16px;
+    font-style: italic;
+    width: max-content;
+}
+
+.errorMessageInput {
+    margin: -29px 0px 0px 8px;
+}
+
+.errorMessageSelect {
+    margin: -27px 0px 0px 8px;
 }
 
 
