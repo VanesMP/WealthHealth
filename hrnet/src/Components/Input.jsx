@@ -3,19 +3,24 @@ import ErrorMessageField from './ErrorMessageField';
 
 /**Render classic/simple input element for form
  * @function Input
- * @param {string} title //text on the label attributs
- * @param {string} attribut //associate the label and the input
- * @param {string} type //type of the input
+ * @param {string} htmlFor
+ * @param {string} className
+ * @param {string} title
+ * @param {string} type
+ * @param {function} register
+ * @param {boolean} required
+ * @param {object} errors
+ * @param {string} name
  * @returns {JSX}
  */
 
 export const Input = (
-    { htmlFor, className, title, type, id, input, register, required, errors, errorMessage }
+    { htmlFor, className, title, type, id, register, required, errors, name }
 ) => {
     return (
         <label htmlFor={htmlFor} className={className}>
             {title} 
-            <input type={type} id={id} {...register(input, {required})}/>
+            <input type={type} id={id} {...register(name, {required})}/>
         {errors && <ErrorMessageField className="errorMessageInput" message="Please, fill out the field !"/>}
         </label>
         )
@@ -33,14 +38,4 @@ export const Input = (
 //     input: PropTypes.string,
 //     register: PropTypes.element,//React element ref methode pour enregistrer un entrér ou selectionner un element
 //     required: PropTypes.bool 
-// }
-
-// export default function Input({ title, attribut, type }) {
-
-//     return(
-//         <label htmlFor={attribut} className={attribut}>
-//             {title} 
-//             <input type={type} id={attribut} ref={attribut}/>
-//         </label>
-//     )
 // }

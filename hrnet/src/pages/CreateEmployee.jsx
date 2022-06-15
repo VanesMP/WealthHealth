@@ -20,12 +20,7 @@ export default function CreateEmployee() {
                     <NavLink to="/"className="nav" style={({ isActive }) => isActive ? activeStyle : undefined} >🖋 Create Employee</NavLink>
                     <NavLink to="/employees"className="nav" style={({ isActive }) => isActive ? activeStyle : undefined} >📋 View Current Employees</NavLink>
                 </div>
-
                 <Form/>
-
             </div>
-
-{/* appel du modal componenet quand au clic buttonSave, avec validation formulaire (tous les champs correctement saisie)*/}
-            {/* <div id="confirmation" className="modal">Employee Created!</div> */}
         </div>
     )}

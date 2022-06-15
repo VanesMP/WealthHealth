@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import EmployeeTable from "../Components/EmployeeTable";
 import Header from "../Components/Header";
 
 /**Render to see all the employees
@@ -14,11 +15,17 @@ export default function EmployeeList() {
 
     return(
         <div className="containerEmployeeList">
-            <Header />
-            <div id="employee-div" className="container">
-                <div className="elementNav">
+            <div className="headerTitle">
+            <Header/>
+            </div>
+            <div id="employee-div" className="containerTable">
+                <div className="elementNavTable">
                     <NavLink to="/employees" style={({ isActive }) => isActive ? activeStyle : undefined} className="nav">Current Employees</NavLink>
-                    <table id="employee-table" className="display"></table>
+                </div>
+                <div className="dataTable">
+                <EmployeeTable />
+                </div>
+                <div className="elementNavTable">
                     <NavLink to="/" style={({ isActive }) => isActive ? activeStyle : undefined} className="nav">Home</NavLink>
                 </div>
             </div>
