@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 //import Provider pour donner l' accés au store a l'application
-import { Provider } from 'redux';
+import { Provider } from 'react-redux';
 //import le store
 import store from '../src/service/store.js';
 
