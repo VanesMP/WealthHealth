@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import dataEmployees from '../employeesData.json';
+import {  useSelector } from 'react-redux';
+// import dataEmployees from '../employeesData.json';
 import { SearchBar } from './SearchBar';
 import { Paper, Table, TableContainer } from '@mui/material';
 import TableHeadEmployee from './TableHead';
@@ -16,6 +17,8 @@ const dayjs = require('dayjs')
  * @returns {JSX} 
  */
 export default function EmployeeTable (props) {
+
+    // const dispatch =useDispatch()
 
 //method for sort column
     function descendingComparator(a, b, orderBy) {
@@ -47,13 +50,18 @@ export default function EmployeeTable (props) {
         setPage(0);
     };
 
+    const globalStateEmployees = useSelector ((state) => state.globalState)
+    console.log("globalState", globalStateEmployees.employees)
+    // const newOne = globalStateEmployees.employees[globalStateEmployees.employees.length -1]
+    // console.log("newOne", newOne)
+
 //init state for employees
-    const [rows, setRows] = useState(dataEmployees.employees)
+    const [rows, setRows] = useState(globalStateEmployees.employees)
 
     const researchEmployee = (valueSearch) => {
         console.log(valueSearch)
         let value = valueSearch.toLowerCase()
-        let findEmployee = dataEmployees.employees
+        let findEmployee = globalStateEmployees.employees
         .filter((row) => { return row.firstName.toLowerCase().includes(value)
         || row.lastName.toLowerCase().includes(valueSearch)
         || row.city.includes(valueSearch)
@@ -68,7 +76,7 @@ export default function EmployeeTable (props) {
             setRows(findEmployee)
         if(valueSearch.length === 0){
             console.log('hello', rows.length)
-            setRows(dataEmployees.employees)          
+            setRows(globalStateEmployees.employees)          
         } 
    }
 
@@ -81,6 +89,7 @@ export default function EmployeeTable (props) {
     setOrder(isAsc ? 'desc' : 'asc');
     setOrderBy(property);
     };
+
 
     return(
         <Paper elevation={3}>
@@ -108,7 +117,7 @@ export default function EmployeeTable (props) {
                                     {employee.department}
                                 </TableCell>
                                 <TableCell>
-                                {dayjs(employee.dateOfBirth).format('DD/MM/YYYY')}
+                                    {dayjs(employee.dateOfBirth).format('DD/MM/YYYY')}
                                 </TableCell>
                                 <TableCell>
                                     {employee.street}

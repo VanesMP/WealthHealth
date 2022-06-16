@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 // import { useEffect } from "react";
+import { useDispatch } from 'react-redux';
 import { useForm } from "react-hook-form";
 import { useRef } from "react";
 import Fieldset from "../Components/Fieldset";
@@ -9,6 +10,8 @@ import Select from "../Components/Select";
 import Modal from "./Modal";
 import dataDepartments from "../departmentOption.json";
 import dataState from "../statesData.json";
+// import { initialState } from '../service/EmployeeSlice';
+import { AddEmployee } from '../service/EmployeeSlice';
 
 /**Render form for create a new employee
  * @function From
@@ -17,8 +20,7 @@ import dataState from "../statesData.json";
 
 export default function Form() {
 
-//init state for for the list of employees
-    // const [employees, setEmployees] = useState([])
+    const dispatch = useDispatch()
 
 //init state for an employee
     const [employee, setEmployee] = useState({
@@ -51,7 +53,6 @@ export default function Form() {
             zipCode: getValues('zipCode'),
             department: getValues('department')
         });
-
         console.log("employee", employee)
     }
 
@@ -60,6 +61,7 @@ export default function Form() {
         console.log("employee", employee)
             modalElement.current.style.display = "block"
             console.log("employee", employee)
+            dispatch(AddEmployee(employee))
         }
     );
 
