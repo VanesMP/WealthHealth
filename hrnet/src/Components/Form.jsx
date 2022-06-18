@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import { useEffect } from "react";
+import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useForm } from "react-hook-form";
 import { useRef } from "react";
@@ -64,6 +64,10 @@ export default function Form() {
             dispatch(AddEmployee(employee))
         }
     );
+
+    const globalStateEmployees = useSelector ((state) => state.globalState)
+    console.log(globalStateEmployees.employees)
+    console.log(employee)
 
 //gestion ouverture et fermeture de la modal
     const buttonOpen =useRef(null);

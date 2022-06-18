@@ -6,14 +6,14 @@ import ErrorMessageField from "./ErrorMessageField"
  * @returns {JSX}
  */
 
-export default function Select({ htmlFor, className, title, register, required, name, options, errors }) {
+export default function Select({ htmlFor, className, title, register, required, name, options, errors, abb }) {
   
     return(
         <label htmlFor={htmlFor} className={className}>
             {title} 
             <select {...register(name, {required})}>
                 <option value=""> </option>
-                {options.map(arrayItem => <option name={arrayItem.name} value={arrayItem.name} key={arrayItem.name}>{arrayItem.name}</option>)}
+                {options.map(arrayItem => <option name={arrayItem.name} value={arrayItem.abbreviation} key={arrayItem.name}>{arrayItem.name}</option>)}
             </select>
             {errors && <ErrorMessageField className="errorMessageSelect" message="Please, choose an option"/>}
         </label>

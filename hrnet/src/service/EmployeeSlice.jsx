@@ -12,7 +12,7 @@ const EmployeeSlice = createSlice({
     reducers: {
       AddEmployee: (state, action) => {
         console.log('in')
-        state.employees = [...state.employees, {
+        state.employees.unshift(({
             firstName:action.payload.firstName,
             lastName:action.payload.lastName,
             startDate:action.payload.startDate,
@@ -22,7 +22,7 @@ const EmployeeSlice = createSlice({
             city:action.payload.city,
             state:action.payload.state,
             zipCode:action.payload.zipCode
-        }]
+        }))
       }}
     })
   

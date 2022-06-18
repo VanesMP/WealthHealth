@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import {  useSelector } from 'react-redux';
-// import dataEmployees from '../employeesData.json';
 import { SearchBar } from './SearchBar';
 import { Paper, Table, TableContainer } from '@mui/material';
 import TableHeadEmployee from './TableHead';
@@ -17,8 +16,6 @@ const dayjs = require('dayjs')
  * @returns {JSX} 
  */
 export default function EmployeeTable (props) {
-
-    // const dispatch =useDispatch()
 
 //method for sort column
     function descendingComparator(a, b, orderBy) {
@@ -52,8 +49,6 @@ export default function EmployeeTable (props) {
 
     const globalStateEmployees = useSelector ((state) => state.globalState)
     console.log("globalState", globalStateEmployees.employees)
-    // const newOne = globalStateEmployees.employees[globalStateEmployees.employees.length -1]
-    // console.log("newOne", newOne)
 
 //init state for employees
     const [rows, setRows] = useState(globalStateEmployees.employees)
