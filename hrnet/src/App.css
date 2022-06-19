@@ -178,6 +178,9 @@ legend {
     margin: 0;
 }
 
+
+/* style Modal */
+
 .modal {
     display: none;
     position: fixed;

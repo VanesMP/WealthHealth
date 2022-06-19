@@ -1,4 +1,3 @@
-
 /**Render of the modal when the form is validated
  * @function Modal
  * @param {JSX} children 
