@@ -6,10 +6,9 @@
  */
 
 export default function ErrorMessageField({ className, message }) {
-
-    return (
-        <div>
-            <p className={className}>{message}</p>
-        </div>
-    )
+  return (
+    <div>
+      <p className={className}>{message}</p>
+    </div>
+  );
 }

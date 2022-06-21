@@ -1,19 +1,25 @@
-import { Input } from "./Input"
+import { Input } from "./Input";
 import { useForm } from "react-hook-form";
 
+export const SearchBar = ({ researchEmployee }) => {
+  const { register, getValues } = useForm();
 
-export const SearchBar= ({ researchEmployee }) => {
+  const handleSearchChange = () => {
+    let valueSearch = getValues("search");
+    researchEmployee(valueSearch);
+  };
 
-    const { register, getValues } = useForm()
-
-    const handleSearchChange = () => {
-        let valueSearch = getValues('search')
-        researchEmployee(valueSearch)
-    }
-
-    return(
-        <form onKeyUp={handleSearchChange} className='searchForm'>
-            <Input htmlFor='search' className='search' title='Search' type='search' id='search' name='search' register={register}/>
-        </form>
-    )
-}
+  return (
+    <form onKeyUp={handleSearchChange} className="searchForm">
+      <Input
+        htmlFor="search"
+        className="search"
+        title="Search"
+        type="search"
+        id="search"
+        name="search"
+        register={register}
+      />
+    </form>
+  );
+};

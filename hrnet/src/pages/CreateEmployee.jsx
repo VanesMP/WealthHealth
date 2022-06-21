@@ -9,18 +9,30 @@ import Form from "../Components/Form";
  */
 
 export default function CreateEmployee() {
+  let activeStyle = { textDecoration: "underline" };
 
-    let activeStyle = { textDecoration: "underline" };
-
-    return(
-        <div className="containerCreateEmployee">
-            <Header />
-            <div className="container">
-                <div className="elementNav">
-                    <NavLink to="/"className="nav" style={({ isActive }) => isActive ? activeStyle : undefined} >🖋 Create Employee</NavLink>
-                    <NavLink to="/employees"className="nav" style={({ isActive }) => isActive ? activeStyle : undefined} >📋 View Current Employees</NavLink>
-                </div>
-                <Form/>
-            </div>
+  return (
+    <div className="containerCreateEmployee">
+      <Header />
+      <div className="container">
+        <div className="elementNav">
+          <NavLink
+            to="/"
+            className="nav"
+            style={({ isActive }) => (isActive ? activeStyle : undefined)}
+          >
+            🖋 Create Employee
+          </NavLink>
+          <NavLink
+            to="/employees"
+            className="nav"
+            style={({ isActive }) => (isActive ? activeStyle : undefined)}
+          >
+            📋 View Current Employees
+          </NavLink>
         </div>
-    )}
+        <Form />
+      </div>
+    </div>
+  );
+}

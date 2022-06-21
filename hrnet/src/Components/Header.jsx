@@ -4,10 +4,9 @@
  */
 
 export default function Header() {
-
-    return(
-        <div className="containerTitle">
-            <h1 className="title">HRnet</h1>
-        </div>
-    )
+  return (
+    <div className="containerTitle">
+      <h1 className="title">HRnet</h1>
+    </div>
+  );
 }

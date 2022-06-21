@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 /**Render of form sections
  * @function Fieldset
@@ -8,17 +8,16 @@ import PropTypes from 'prop-types';
  */
 
 export default function Fieldset({ title, attribut, children }) {
-
-    return(
-        <fieldset className={attribut}> 
-            <legend>{title}</legend>
-            {children}
-        </fieldset>
-    )
+  return (
+    <fieldset className={attribut}>
+      <legend>{title}</legend>
+      {children}
+    </fieldset>
+  );
 }
 
 Fieldset.propTypes = {
-    title: PropTypes.string,
-    attribut: PropTypes.string,
-    children: PropTypes.node.isRequired
-}
+  title: PropTypes.string,
+  attribut: PropTypes.string,
+  children: PropTypes.node.isRequired,
+};

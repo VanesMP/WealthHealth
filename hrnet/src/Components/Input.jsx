@@ -1,5 +1,5 @@
 // import PropTypes from 'prop-types';
-import ErrorMessageField from './ErrorMessageField';
+import ErrorMessageField from "./ErrorMessageField";
 
 /**Render classic/simple input element for form
  * @function Input
@@ -14,17 +14,30 @@ import ErrorMessageField from './ErrorMessageField';
  * @returns {JSX}
  */
 
-export const Input = (
-    { htmlFor, className, title, type, id, register, required, errors, name }
-) => {
-    return (
-        <label htmlFor={htmlFor} className={className}>
-            {title} 
-            <input type={type} id={id} {...register(name, {required})}/>
-        {errors && <ErrorMessageField className="errorMessageInput" message="Please, fill out the field !"/>}
-        </label>
-        )
-}
+export const Input = ({
+  htmlFor,
+  className,
+  title,
+  type,
+  id,
+  register,
+  required,
+  errors,
+  name,
+}) => {
+  return (
+    <label htmlFor={htmlFor} className={className}>
+      {title}
+      <input type={type} id={id} {...register(name, { required })} />
+      {errors && (
+        <ErrorMessageField
+          className="errorMessageInput"
+          message="Please, fill out the field !"
+        />
+      )}
+    </label>
+  );
+};
 
 // Input.propTypes = {
 //     htmlFor: PropTypes.string,
@@ -37,5 +50,5 @@ export const Input = (
 //     id: PropTypes.string,
 //     input: PropTypes.string,
 //     register: PropTypes.element,//React element ref methode pour enregistrer un entrér ou selectionner un element
-//     required: PropTypes.bool 
+//     required: PropTypes.bool
 // }
