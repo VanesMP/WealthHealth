@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import Nav from "../Components/Nav";
 import EmployeeTable from "../Components/EmployeeTable";
 import Header from "../Components/Header";
 
@@ -8,36 +8,21 @@ import Header from "../Components/Header";
  */
 
 export default function EmployeeList() {
-  let activeStyle = {
-    textDecoration: "underline",
-  };
-
+  
   return (
-    <div className="containerEmployeeList">
+    <div>
       <div className="headerTitle">
         <Header />
       </div>
-      <div id="employee-div" className="containerTable">
-        <div className="elementNavTable">
-          <NavLink
-            to="/employees"
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
-            className="nav"
-          >
-            Current Employees
-          </NavLink>
+      <div className="containerTable">
+        <div>
+          <Nav linkTo="/employees" text="Current Employees" />
         </div>
         <div className="dataTable">
           <EmployeeTable />
         </div>
-        <div className="elementNavTable">
-          <NavLink
-            to="/"
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
-            className="nav"
-          >
-            Home
-          </NavLink>
+        <div>
+          <Nav linkTo="/" text="Home" />
         </div>
       </div>
     </div>

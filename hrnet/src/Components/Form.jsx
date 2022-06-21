@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import Fieldset from "../Components/Fieldset";
 import { Input } from "../Components/Input";
@@ -15,7 +15,6 @@ import { AddEmployee } from "../service/EmployeeSlice";
  * @returns {JSX}
  */
 
-console.log(Modal);
 
 export default function Form() {
   const dispatch = useDispatch();
@@ -56,20 +55,12 @@ export default function Form() {
       zipCode: getValues("zipCode"),
       department: getValues("department"),
     });
-    console.log("employee", employee);
   }
 
-  const onSubmit = (data) => {
-    console.log("data form", data);
-    console.log("employee", employee);
+  const onSubmit = () => {
     modalElement.current.style.display = "block";
-    console.log("employee", employee);
     dispatch(AddEmployee(employee));
   };
-
-  const globalStateEmployees = useSelector((state) => state.globalState);
-  console.log(globalStateEmployees.employees);
-  console.log(employee);
 
   //gestion ouverture et fermeture de la modal
   const buttonOpen = useRef(null);

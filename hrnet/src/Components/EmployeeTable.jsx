@@ -53,27 +53,21 @@ export default function EmployeeTable(props) {
   const [rows, setRows] = useState(globalStateEmployees.employees);
 
   const researchEmployee = (valueSearch) => {
-    console.log(valueSearch);
     let value = valueSearch.toLowerCase();
     let findEmployee = globalStateEmployees.employees.filter((row) => {
       return (
         row.firstName.toLowerCase().includes(value) ||
-        row.lastName.toLowerCase().includes(valueSearch) ||
-        row.city.includes(valueSearch) ||
+        row.lastName.toLowerCase().includes(value) ||
+        row.city.toLowerCase().includes(value) ||
         row.dateOfBirth.includes(valueSearch) ||
-        row.department.includes(valueSearch) ||
+        row.department.toLowerCase().includes(value) ||
         row.startDate.includes(valueSearch) ||
-        row.state.includes(valueSearch) ||
-        row.street.includes(valueSearch) ||
+        row.state.toLowerCase().includes(value) ||
+        row.street.toLowerCase().includes(value) ||
         row.zipCode.includes(valueSearch)
       );
     });
-    console.log(findEmployee);
     setRows(findEmployee);
-    if (valueSearch.length === 0) {
-      console.log("hello", rows.length);
-      setRows(globalStateEmployees.employees);
-    }
   };
 
   //init state for sort by columns

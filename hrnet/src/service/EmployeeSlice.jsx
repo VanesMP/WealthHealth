@@ -10,7 +10,6 @@ const EmployeeSlice = createSlice({
   initialState,
   reducers: {
     AddEmployee: (state, action) => {
-      console.log("in");
       state.employees.unshift({
         firstName: action.payload.firstName,
         lastName: action.payload.lastName,
@@ -28,5 +27,4 @@ const EmployeeSlice = createSlice({
 
 export const reducer = EmployeeSlice.reducer;
 export const { AddEmployee } = EmployeeSlice.actions;
-//export const selectEmployees = (state) = state.globalState.employees
 export default EmployeeSlice.reducer;

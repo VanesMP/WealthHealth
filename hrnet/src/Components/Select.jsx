@@ -14,8 +14,7 @@ export default function Select({
   required,
   name,
   options,
-  errors,
-  abb,
+  errors
 }) {
   return (
     <label htmlFor={htmlFor} className={className}>
