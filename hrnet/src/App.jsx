@@ -12,7 +12,7 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path="/" element={<CreateEmployee />} />
+        <Route path="/WealthHealth" exact element={<CreateEmployee />} />
         <Route path="/employees" element={<EmployeeList />} />
       </Routes>
     </Router>
