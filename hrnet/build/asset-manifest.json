@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/WealthHealth/hrnet/static/css/main.7b378f40.css",
+    "main.js": "/WealthHealth/hrnet/static/js/main.76134662.js",
+    "index.html": "/WealthHealth/hrnet/index.html",
+    "main.7b378f40.css.map": "/WealthHealth/hrnet/static/css/main.7b378f40.css.map",
+    "main.76134662.js.map": "/WealthHealth/hrnet/static/js/main.76134662.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7b378f40.css",
+    "static/js/main.76134662.js"
+  ]
+}

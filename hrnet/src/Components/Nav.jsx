@@ -2,8 +2,8 @@ import { NavLink } from "react-router-dom";
 
 /** Render to create new employee page
  * @function NavLink
- * @param {string} linkTo
- * @param {string} text
+ * @param {string} htmlFor
+ * @param {string} className
  * @returns {JSX}
  */
 

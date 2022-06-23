@@ -1,13 +1,5 @@
 /* css page : createEmployee */
 
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 85%;
-    margin: auto;
-}
-
 input,
 select {
     border-radius: 12px;
@@ -19,6 +11,10 @@ select {
     padding: 0px 0px 0px 10px;
 }
 
+h2 {
+    margin: 0;
+}
+
 a {
     text-decoration: none;
 }
@@ -27,17 +23,23 @@ a:hover {
     text-decoration: underline;
 }
 
-.containerCreateEmployee {
+
+/*style header*/
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
     width: 90%;
+    margin: auto;
+    margin-top: 20px;
 }
 
 .containerTitle {
-    float: left;
     width: 115px;
     height: 110px;
     background-color: #035728;
     border-radius: 50%;
-    margin: -40px 0px 0px 35px;
 }
 
 .title {
@@ -51,33 +53,30 @@ a:hover {
 }
 
 .nav {
-    font-size: 24px;
+    font-size: 20px;
     color: black;
     font-weight: bold;
 }
 
 .elementNav {
-    margin-top: 40px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 100%;
+    width: 430px;
     justify-content: space-between;
 }
 
-.container {
+
+/*style formulaire*/
+
+#createEmployee {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    margin: 65px auto 0px auto;
-    width: 630px;
+    margin-top: 35px;
 }
 
 label {
-    display: block;
-    margin: 0px;
-    height: max-content;
     font-size: 18px;
     font-weight: bold;
     display: flex;
@@ -85,18 +84,14 @@ label {
 }
 
 fieldset {
-    width: 100%;
+    width: 730px;
     margin: 13px 15px;
     border: 3px solid #035728;
     border-radius: 5px;
-    padding: 15px 40px 20px 40px;
+    padding: 20px 40px;
     grid-gap: 11px 100px;
-}
-
-.fieldsetIdentity {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    margin-top: 35px;
+    grid-template-columns: 1fr 1fr;
 }
 
 .street {
@@ -116,14 +111,7 @@ fieldset {
 }
 
 .fieldsetAdress {
-    display: grid;
     grid-template-areas: "street street" "city state" "zipCode . ";
-    grid-template-columns: 1fr 1fr;
-}
-
-.fieldsetDepartment {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
 }
 
 legend {
@@ -231,8 +219,11 @@ legend {
 
 /* css page : EmployeeList */
 
-.headerTitle {
-    margin-top: 92px;
+.currentEmployee {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
 }
 
 .arrow {

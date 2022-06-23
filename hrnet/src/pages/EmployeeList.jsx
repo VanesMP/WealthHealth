@@ -14,10 +14,8 @@ export default function EmployeeList() {
       <div className="headerTitle">
         <Header />
       </div>
-      <div className="containerTable">
-        <div>
-          <Nav linkTo="/employees" text="Current Employees" />
-        </div>
+      <div className="currentEmployee">
+        <h2>Current Employees</h2>
         <div className="dataTable">
           <EmployeeTable />
         </div>

@@ -57,7 +57,8 @@ export default function Form() {
     });
   }
 
-  const onSubmit = () => {
+  const onSubmit = (data) => {
+    console.log(data)
     modalElement.current.style.display = "block";
     dispatch(AddEmployee(employee));
   };

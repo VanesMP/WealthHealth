@@ -7,13 +7,11 @@ import { Provider } from "react-redux";
 //import le store
 import { store } from "./service/store.jsx";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <Provider store={store}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </Provider>
+ReactDOM.createRoot(document.getElementById("root")).render(
+    <Provider store={store}>
+        <React.StrictMode>
+            <App/>
+        </React.StrictMode>
+    </Provider>
 );
-
 
