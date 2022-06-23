@@ -10,9 +10,9 @@ import "./App.css";
  */
 export default function App() {
   return (
-    <Router>
+    <Router basename="/WealthHealth">
       <Routes>
-        <Route path="/WealthHealth" exact element={<CreateEmployee />} />
+        <Route path="/" exact element={<CreateEmployee />} />
         <Route path="/employees" element={<EmployeeList />} />
       </Routes>
     </Router>
