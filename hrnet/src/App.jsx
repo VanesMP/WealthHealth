@@ -12,7 +12,7 @@ export default function App() {
   return (
     <Router basename="/WealthHealth">
       <Routes>
-        <Route path="/" exact element={<CreateEmployee />} />
+        <Route path="/" element={<CreateEmployee />} />
         <Route path="/employees" element={<EmployeeList />} />
       </Routes>
     </Router>
