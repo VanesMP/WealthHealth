@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, HashRouter } from "react-router-dom";
 import EmployeeList from "./pages/EmployeeList";
 import CreateEmployee from "./pages/CreateEmployee";
 import "./App.css";
@@ -10,11 +10,13 @@ import "./App.css";
  */
 export default function App() {
   return (
-    <Router basename="/WealthHealth">
+    <HashRouter basename="/">
+    <Router >
       <Routes>
         <Route path="/" element={<CreateEmployee />} />
         <Route path="/employees" element={<EmployeeList />} />
       </Routes>
     </Router>
+    </HashRouter>
   );
 }
