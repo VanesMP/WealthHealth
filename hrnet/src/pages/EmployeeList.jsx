@@ -20,7 +20,7 @@ export default function EmployeeList() {
           <EmployeeTable />
         </div>
         <div>
-          <Nav linkTo="/" text="Home" />
+          <Nav linkTo="/wealthhealth/" text="Home" />
         </div>
       </div>
     </div>
