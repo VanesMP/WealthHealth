@@ -10,7 +10,7 @@ import "./App.css";
  */
 export default function App() {
   return (
-    <Router basename="/">
+    <Router basename="/wealthhealth">
       <Routes>
         <Route path="/" element={<CreateEmployee />} />
         <Route path="/employees" element={<EmployeeList />} />
