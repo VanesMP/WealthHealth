@@ -12,8 +12,8 @@ export default function App() {
   return (
     <Router basename="/wealthhealth">
       <Routes>
-        <Route path="/" element={<CreateEmployee />} />
-        <Route path="/employees" element={<EmployeeList />} />
+        <Route path="/employees" element={<CreateEmployee />} />
+        <Route path="/" element={<EmployeeList />} />
       </Routes>
     </Router>
   );
