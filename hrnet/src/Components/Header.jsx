@@ -12,8 +12,8 @@ export default function Header() {
         <h1 className="title">HRnet</h1>
       </div>
       <div className="elementNav">
-        <Nav linkTo="/wealthhealth/" text="Create Employee" />
-        <Nav linkTo="/wealthhealth/employees" text="View Current Employees" />
+        <Nav linkTo="/" text="Create Employee" />
+        <Nav linkTo="/employees" text="View Current Employees" />
       </div>
     
     </div>
