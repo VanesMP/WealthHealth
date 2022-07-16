@@ -8,15 +8,25 @@ import TableCell from "@mui/material/TableCell";
 import TableBody from "@mui/material/TableBody";
 import TablePagination from "@mui/material/TablePagination";
 
+//utilisation de la librairie day.js pour obtenir le bon format de sortie de la date
 const dayjs = require("dayjs");
 
-/**Render data table employee
+/**Render data table employees
  * @funtion EmployeeTable
- * @param {object} props
  * @returns {JSX}
  */
-export default function EmployeeTable(props) {
-  //method for sort column
+export default function EmployeeTable() {
+  
+  //récuperation de la liste des employées depuis le store
+  const globalStateEmployees = useSelector((state) => state.globalState);
+  
+  //initialisation du state list employees
+  const [rows, setRows] = useState(globalStateEmployees.employees);
+  
+  //init state for sort by columns
+  const [order, setOrder] = useState("asc");
+  const [orderBy, setOrderBy] = useState([]); //default value
+  //methode appliquer sur chaque element du tableHead pour trier les colonnes
   function descendingComparator(a, b, orderBy) {
     if (b[orderBy] < a[orderBy]) {
       return -1;
@@ -26,32 +36,35 @@ export default function EmployeeTable(props) {
     }
     return 0;
   }
-
+  
   function getComparator(order, orderBy) {
     return order === "desc"
-      ? (a, b) => descendingComparator(a, b, orderBy)
-      : (a, b) => -descendingComparator(a, b, orderBy);
+    ? (a, b) => descendingComparator(a, b, orderBy)
+    : (a, b) => -descendingComparator(a, b, orderBy);
   }
-
-  //init state for pagination + number of rows(employee) per pages
+  
+  const handleRequestSort = (event, property) => {
+    const isAsc = orderBy === property && order === "asc";
+    setOrder(isAsc ? "desc" : "asc");
+    setOrderBy(property);
+  };
+  
+  //initialisation du state pour la pagination
   const [page, setPage] = useState(0);
+  //initialisation du state pour le nombre d' employee par page
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
+ //methode pour le changement de page
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
-
+//methode pour changer le nombre d'employees par page
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(event.target.value);
     setPage(0);
   };
 
-  const globalStateEmployees = useSelector((state) => state.globalState);
-  console.log("globalState", globalStateEmployees.employees);
-
-  //init state for employees
-  const [rows, setRows] = useState(globalStateEmployees.employees);
-
+//méthode pour effectuer une recherche dans le tableaux
   const researchEmployee = (valueSearch) => {
     let value = valueSearch.toLowerCase();
     let findEmployee = globalStateEmployees.employees.filter((row) => {
@@ -68,16 +81,6 @@ export default function EmployeeTable(props) {
       );
     });
     setRows(findEmployee);
-  };
-
-  //init state for sort by columns
-  const [order, setOrder] = useState("asc");
-  const [orderBy, setOrderBy] = useState([]); //default value
-
-  const handleRequestSort = (event, property) => {
-    const isAsc = orderBy === property && order === "asc";
-    setOrder(isAsc ? "desc" : "asc");
-    setOrderBy(property);
   };
 
   return (
@@ -136,3 +139,4 @@ export default function EmployeeTable(props) {
     </Paper>
   );
 }
+

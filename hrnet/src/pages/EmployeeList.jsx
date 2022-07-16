@@ -2,7 +2,7 @@ import Nav from "../Components/Nav";
 import EmployeeTable from "../Components/EmployeeTable";
 import Header from "../Components/Header";
 
-/**Render to see all the employees
+/**Render to see all the employees in a table
  * @function EmployeeList
  * @returns {JSX}
  */

@@ -4,6 +4,7 @@ import TableCell from "@mui/material/TableCell";
 import TableSortLabel from "@mui/material/TableSortLabel";
 import Box from "@mui/material/Box";
 import { visuallyHidden } from "@mui/utils";
+import PropTypes from 'prop-types';
 
 //Label column
 export const columnsHeader = [
@@ -55,4 +56,8 @@ export default function TableHeadEmployee(props) {
       </TableRow>
     </TableHead>
   );
+}
+
+TableHeadEmployee.propTypes =  {
+  props: PropTypes.object
 }

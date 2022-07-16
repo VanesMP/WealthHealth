@@ -1,9 +1,10 @@
 import { NavLink } from "react-router-dom";
+import PropTypes from 'prop-types';
 
-/** Render to create new employee page
- * @function NavLink
- * @param {string} htmlFor
- * @param {string} className
+/** Render to navigation system
+ * @function Nav
+ * @param {string} linkTo
+ * @param {string} text
  * @returns {JSX}
  */
 
@@ -22,3 +23,8 @@ export default function Nav({ linkTo, text }) {
         </div>
     )
 }
+
+Nav.propTypes = {
+    linkTo: PropTypes.string,
+    text: PropTypes.string
+  }

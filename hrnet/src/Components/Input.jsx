@@ -1,5 +1,6 @@
 // import PropTypes from 'prop-types';
 import ErrorMessageField from "./ErrorMessageField";
+import { PropTypes } from 'prop-types';
 
 /**Render classic/simple input element for form
  * @function Input
@@ -39,16 +40,14 @@ export const Input = ({
   );
 };
 
-// Input.propTypes = {
-//     htmlFor: PropTypes.string,
-//     className: PropTypes.string,
-//     title: PropTypes.string,
-//     type: PropTypes.oneOfType([
-//         PropTypes.string,
-//         PropTypes.number
-//     ]),
-//     id: PropTypes.string,
-//     input: PropTypes.string,
-//     register: PropTypes.element,//React element ref methode pour enregistrer un entrér ou selectionner un element
-//     required: PropTypes.bool
-// }
+Input.propTypes = {
+    htmlFor: PropTypes.string,
+    className: PropTypes.string,
+    title: PropTypes.string,
+    type: PropTypes.string,
+    id: PropTypes.string,
+    register: PropTypes.func,
+    required: PropTypes.bool,
+    errors: PropTypes.object,
+    name: PropTypes.string
+}

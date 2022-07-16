@@ -15,11 +15,10 @@ import { AddEmployee } from "../service/EmployeeSlice";
  * @returns {JSX}
  */
 
-
 export default function Form() {
   const dispatch = useDispatch();
 
-  //init state for an employee
+  //initialisation du state employee
   const [employee, setEmployee] = useState({
     firstName: "",
     lastName: "",
@@ -32,7 +31,11 @@ export default function Form() {
     department: "",
   });
 
-  //utilisation de react-hook-form pour recuperer la saisie utilisatuer, valider le form. sans erreur et effacer les entrees apres validation.
+  //utilisation de react-hook-form pour recuperer la saisie utilisatueur(register)
+  //transferer les valeurs récuperer a la fonction onSubmit (handleSubmit)
+  //et valider le form. sans erreur (formState)
+  //lecture de donnes employees de chaque propriété pour mettre a jour du state employee (getValues)
+  //et effacer les entrees apres validation (reset)
   const {
     register,
     handleSubmit,
@@ -42,8 +45,9 @@ export default function Form() {
   } = useForm({
     defaultValues: employee,
   });
-  //save in state information employee from the form
-  function saveEmployee() {
+
+  //lecture de donnes employees de chaque propriété pour mettre a jour du state employee (getValues)
+  function getEmployee() {
     setEmployee({
       firstName: getValues("firstName"),
       lastName: getValues("lastName"),
@@ -57,13 +61,14 @@ export default function Form() {
     });
   }
 
+  //envoi du formulaire avec affichage plugin modal et action dipatché pour mettre a jour le store avec le nouvel employee
   const onSubmit = (data) => {
-    console.log(data)
     modalElement.current.style.display = "block";
     dispatch(AddEmployee(employee));
   };
 
   //gestion ouverture et fermeture de la modal
+  //utilisation du hook useRef pour sélection les 2 elements: bouton save et la modale 
   const buttonOpen = useRef(null);
   const modalElement = useRef(null);
 
@@ -186,7 +191,7 @@ export default function Form() {
           className="btnSave"
           type="submit"
           ref={buttonOpen}
-          onClick={saveEmployee}
+          onClick={getEmployee}
         >
           Save
         </button>

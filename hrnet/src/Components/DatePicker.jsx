@@ -1,4 +1,18 @@
 import ErrorMessageField from "./ErrorMessageField";
+import PropTypes from 'prop-types';
+
+/** Render form datPicker field
+ * @function DatePicker
+ * @param {string} htmlFor
+ * @param {string} className
+ * @param {string} title
+ * @param {string} type
+ * @param {function} register
+ * @param {boolean} required
+ * @param {object} errors
+ * @param {string} name
+ * @returns {JSX}
+ */
 
 export const DatePicker = ({
   htmlFor,
@@ -23,3 +37,14 @@ export const DatePicker = ({
     </label>
   );
 };
+
+DatePicker.propTypes = {
+  htmlFor: PropTypes.string,
+  className: PropTypes.string,
+  title: PropTypes.string, 
+  type: PropTypes.string,
+  register: PropTypes.func,
+  required: PropTypes.bool,
+  errors: PropTypes.object,
+  name: PropTypes.string
+}
